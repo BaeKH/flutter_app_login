@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../pages/my_home.dart';
+import 'package:flutter_app_login/pages/my_home.dart';
 
 class PageNotifier extends ChangeNotifier {
   String _currentPage = MyHomePage.pageName;

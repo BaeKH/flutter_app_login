@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_login/provider/page_notifier.dart';
+import 'package:provider/provider.dart';
 
 class AuthPage extends Page{
 
@@ -20,6 +22,20 @@ class AuthWidget extends StatefulWidget {
 class _AuthWidgetState extends State<AuthWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(color: Colors.amberAccent,);
+    return Material(
+      child: InkWell(
+        onTap: () {
+          Provider.of<PageNotifier>(context, listen: false).goToMain();
+        },
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                  image: AssetImage('assets/image.gif')
+              )
+            ),
+          ),
+      ),
+    );
   }
 }

@@ -53,8 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
         actions: [
-          IconButton(icon: Icon(Icons.logout), onPressed: (){
-            Provider.of<PageNotifier>(context, listen: false).goToOtherPage(AuthPage.pageName);
+          IconButton(icon: Icon(Icons.logout),
+              onPressed: (){
+                Provider.of<PageNotifier>(context, listen: false)
+                    .goToOtherPage(AuthPage.pageName);
           })
         ],
       ),
