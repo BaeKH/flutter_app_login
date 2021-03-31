@@ -28,8 +28,10 @@ class _AuthWidgetState extends State<AuthWidget> {
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
 
+  static final double cornerRadius = 8.0;
+
   OutlineInputBorder _border = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8),
+    borderRadius: BorderRadius.circular(cornerRadius),
     borderSide: BorderSide(color: Colors.transparent, width: 0),
   );
 
@@ -74,7 +76,22 @@ class _AuthWidgetState extends State<AuthWidget> {
                     SizedBox(
                       height: 16,
                     ),
-                    FlatButton(onPressed: (){}, child: Text("Login"),)
+                    FlatButton(
+                      onPressed: (){
+
+                        if(_formKey.currentState.validate()) {
+                          print('모든 입력값이 올바르구나!!');
+                        }
+
+
+                      },
+                      color: Colors.white54,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(cornerRadius)
+                      ),
+                      padding: EdgeInsets.all(16),
+                      child: Text("Login"),
+                    )
                   ],
                 ),
               ),
@@ -101,8 +118,10 @@ class _AuthWidgetState extends State<AuthWidget> {
                       filled: true,
                       fillColor: Colors.black45,
                       border: _border,
+                      errorBorder: _border.copyWith(borderSide: BorderSide(color: Colors.black, width: 3)),
                       enabledBorder: _border,
                       focusedBorder: _border,
+                      errorStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                       labelStyle: TextStyle(color: Colors.white),
                     ),
                   );
